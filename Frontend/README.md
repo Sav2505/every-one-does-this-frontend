@@ -48,3 +48,4 @@ export default tseslint.config({
   },
 })
 ```
+>>>>>>> 3756ccc (Initial frontend commit)

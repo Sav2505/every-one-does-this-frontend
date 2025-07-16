@@ -33,54 +33,29 @@
 
 // export const { useGetConfessionsAPIQuery, usePostConfessionMutation } = tablesApiSlice;
 
-import {
-  createApi,
-  QueryReturnValue,
-} from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IConfession, IPostConfession } from "../../interfaces/interfaces";
-import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = "https://ehlafdwgnadqtdpxxiwc.supabase.co";
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY || "";
-const supabase = createClient(supabaseUrl, supabaseKey);
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://every-one-does-this-backend.onrender.com";
 
 export const tablesApiSlice = createApi({
   reducerPath: "confessions",
-  baseQuery: async () => ({ data: [] }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${BASE_URL}/tables` }),
   tagTypes: ["Confessions"],
   endpoints: (builder) => ({
     getConfessionsAPI: builder.query<IConfession[], void>({
-      async queryFn(): Promise<QueryReturnValue<IConfession[], unknown>> {
-        const { data, error } = await supabase
-          //@ts-ignore
-          .from<IConfession>("confessions")
-          .select("*");
-
-        if (error) {
-          return { error };
-        }
-        return { data: data || [] };
-      },
+      query: () => "/get-confessions",
       providesTags: ["Confessions"],
     }),
     postConfession: builder.mutation<IConfession, IPostConfession>({
-      async queryFn(
-        newConfession: IPostConfession
-      ): Promise<QueryReturnValue<IConfession, unknown>> {
-        const { data, error } = await supabase
-          //@ts-ignore
-          .from<IConfession>("confessions")
-          .insert([newConfession]);
-
-        if (error) {
-          return { error };
-        }
-        return { data: data ? data[0] : (null as any) };
-      },
+      query: (newConfession) => ({
+        url: "/post-confession",
+        method: "POST",
+        body: newConfession,
+      }),
       invalidatesTags: ["Confessions"],
     }),
   }),
 });
 
-export const { useGetConfessionsAPIQuery, usePostConfessionMutation } =
-  tablesApiSlice;
+export const { useGetConfessionsAPIQuery, usePostConfessionMutation } = tablesApiSlice;

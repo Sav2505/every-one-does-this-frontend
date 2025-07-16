@@ -4,7 +4,7 @@ import { CONFIG_API } from "../configs";
 import { ControlPage } from "./pages/ControlPage";
 import { MainPage } from "./pages/MainPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import theme from "../theme";
 import { MobilePage } from "./pages/MobilePage";

@@ -83,6 +83,24 @@
   border: 2px solid rgba(255, 255, 255, 0.98);
 }
 
+.mobile-age-input {
+  max-width: 52%;
+  margin-top: 1vh;
+  padding: 6px 6px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  color: white;
+  font-size: 15px;
+  direction: rtl;
+  font-family: "Rubik", sans-serif;
+}
+
+.mobile-age-input:focus {
+  outline: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+}
+
 .mobile-gender-buttons-wrapper {
   display: flex;
   flex-direction: column;

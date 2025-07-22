@@ -163,6 +163,7 @@ export const MobilePage = () => {
         <span className="mobile-span extend">אל תדאג.י את.ה נשאר.ת אנונימי.ת.</span>
         <span className="mobile-span">הגיל שלי הוא-</span>
         <input
+          className="mobile-age-input"
           value={age}
           min={1}
           max={120}
@@ -174,7 +175,6 @@ export const MobilePage = () => {
               setAge(Number(""));
             }
           }}
-          style={{ maxWidth: "92%", marginTop: "1vh", padding: "6px 6px", background: "rgba(0, 0, 0, 0)" }}
         ></input>
         <div className="mobile-gender-buttons-wrapper">
           <span className="mobile-span">ואני-</span>
@@ -188,17 +188,15 @@ export const MobilePage = () => {
           >
             <ToggleButton
               value="גבר"
-              className={`mobile-gender-toggle-button ${
-                gender === "גבר" ? "selected" : ""
-              } male`}
+              className={`mobile-gender-toggle-button ${gender === "גבר" ? "selected" : ""
+                } male`}
             >
               גבר
             </ToggleButton>
             <ToggleButton
               value="אישה"
-              className={`mobile-gender-toggle-button ${
-                gender === "אישה" ? "selected" : ""
-              } female`}
+              className={`mobile-gender-toggle-button ${gender === "אישה" ? "selected" : ""
+                } female`}
             >
               אישה
             </ToggleButton>

@@ -7,7 +7,7 @@
   color: white;
   font-size: 19px;
   font-family: "Rubik", sans-serif;
-  transition: color 0.8s ease, filter 0.8s ease, all 0.8s ease;
+  transition: color 1.2s ease, filter 1.2s ease, all 1.2s ease;
   height: 20px;
   max-height: 20px;
   width: auto;
@@ -55,8 +55,8 @@
 .confession-span {
   display: flex;
   text-wrap: nowrap;
-  transition: color 1s ease;
-  transition: max-width 1s ease, max-height 1s ease, opacity 1s ease;
+  transition: color 1.2s ease;
+  transition: max-width 2s ease, max-height 2s ease, opacity 2s ease;
 }
 
 .confession-span.extra-info {
